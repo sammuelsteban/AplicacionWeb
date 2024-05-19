@@ -2,85 +2,128 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Task Manager</title>
+<title>Lista de Tareas</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
-  /* Barra de Navegacion */
-  .navbar {
-    background-color: #007bff;
-    padding: 40px;
-  }
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    margin-right: 50px;
-  }
-  .navbar a:hover {
-    color: #ccc;
-  }
+  /* Estilos adicionales */
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+        .task-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        .task-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+         }
+        body {
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .faq-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .faq-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .faq-list li:last-child {
+            border-bottom: none;
+        }
+        .navbar {
+            background-color: #007bff;
+            padding: 40px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 50px;
+        }
+        .navbar a:hover {
+            color: #ccc;
+        }
 
-  .task-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .task-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
-  }
-  .task-item img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  .task-item input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  .task-item.actions {
-    display: flex;
-    align-items: center;
-  }
-  .task-item.actions button {
-    margin-left: 10px;
-  }
+        .task-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .task-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        .task-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .task-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .task-item.actions {
+            display: flex;
+            align-items: center;
+        }
+        .task-item.actions button {
+            margin-left: 10px;
+        }
 </style>
 </head>
 <body>
 
+<!-- Barra de Navegación -->
 <nav class="navbar">
-  <a href="#">LIsta de Tareas</a>
+  <a href="#">Lista de Tareas</a>
   <a href="about.html">Información Acerca de este Proyecto</a>
   <a href="contact.html">Información de Contacto</a>
 </nav>
 
 <br><br>
 
-<!-- Task Manager content -->
+<!-- Contenido Lista de Tareas-->
 <div class="container">
-    
+
   <form id="task-form">
     <div class="form-group">
-        <br>
-      <label for="task-name">Task Name</label>
-        <br>
-      <input type="text" class="form-control" id="task-name" placeholder="Enter task name">
+      <label for="tarea-nombre">Nombre de la Tarea</label>
+      <input type="text" class="form-control" id="tarea-nombre" placeholder="Introduzca el nombre de la tarea">
     </div>
     <div class="form-group">
-      <label for="task-responsible">Responsible</label>
-      <input type="text" class="form-control" id="task-responsible" placeholder="Enter responsible name">
+      <label for="tarea-responsable">Responsable</label>
+      <input type="text" class="form-control" id="tarea-responsable" placeholder="Introduzca el nombre del responsable">
     </div>
     <div class="form-group">
-      <label for="task-image">Image</label>
-      <input type="file" class="form-control-file" id="task-image">
+      <label for="tarea-imagen">Imagen</label>
+      <input type="file" class="form-control-file" id="tarea-imagen">
     </div>
-    <button type="submit" class="btn btn-primary">Add Task</button>
+    <button type="submit" class="btn btn-primary">Añadir Tarea</button>
   </form>
+
   <ul id="task-list" class="task-list"></ul>
+
 </div>
 
 <!-- Scripts -->
@@ -89,85 +132,66 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function() {
-  // Array to store tasks
   var tasks = [];
 
-  // Function to add task to list
   function addTask(task) {
     tasks.push(task);
+    
     var taskItem = $('<li class="task-item"></li>');
-    var taskCheckbox = $('<input type="checkbox">');
-    var taskLabel = $('<label>' + task.name + '</label>');
+    var taskName = $('<span>' + task.name + '</span>');
     var taskResponsible = $('<span>' + task.responsible + '</span>');
-    var taskImagePreview = $('<img>');
-    var taskActions = $('<div class="actions"></div>');
-    var taskDeleteButton = $('<button class="btn btn-danger">Delete</button>');
-    var taskCompleteButton = $('<button class="btn btn-success">Complete</button>');
-
-    // Create task item
-    taskCheckbox.appendTo(taskItem);
-    taskLabel.appendTo(taskItem);
+    var taskImage = $('<img src="' + URL.createObjectURL(task.image) + '">');
+    
+    var deleteButton = $('<button class="btn btn-danger">Eliminar</button>');
+    var completeButton = $('<button class="btn btn-success">Completado</button>');
+    
+    taskName.appendTo(taskItem);
     taskResponsible.appendTo(taskItem);
-    taskImagePreview.appendTo(taskItem);
-    taskActions.appendTo(taskItem);
-    taskDeleteButton.appendTo(taskActions);
-    taskCompleteButton.appendTo(taskActions);
-
-    // Add event listeners
-    taskCheckbox.on('change', function() {
-      task.completed = $(this).prop('checked');
+    taskImage.appendTo(taskItem);
+    
+    deleteButton.appendTo(taskItem);
+    completeButton.appendTo(taskItem);
+    
+    // Evento para mostrar la imagen más grande al hacer clic
+    taskImage.on('click', function() {
+      var imgSrc = $(this).attr('src');
+      alert('Mostrar imagen en tamaño más grande: ' + imgSrc);
+      // Aquí puedes implementar la lógica para mostrar la imagen en un modal o ventana emergente más grande
     });
-    taskDeleteButton.on('click', function() {
-      deleteTask(task);
+    
+    deleteButton.on('click', function() {
+      $(this).closest('.task-item').remove();
+      tasks = tasks.filter(t => t !== task);
     });
-    taskCompleteButton.on('click', function() {
-      task.completed = true;
-      $(taskItem).addClass('completed');
+    
+    completeButton.on('click', function() {
+      alert('Tarea completada: ' + task.name);
+      $(this).closest('.task-item').remove();
+      tasks = tasks.filter(t => t !== task);
     });
-
-    // Add task item to list
-    $('#task-list').append(taskItem);
+    
+    taskItem.appendTo('#task-list');
   }
 
-  // Function to delete task
-  function deleteTask(task) {
-    var index = tasks.indexOf(task);
-    if (index !== -1) {
-      tasks.splice(index, 1);
-      $('#task-list li').eq(index).remove();
-    }
-  }
-
-  // Handle form submission
   $('#task-form').submit(function(e) {
     e.preventDefault();
-    var taskName = $('#task-name').val();
-    var responsible = $('#task-responsible').val();
-    var taskImage = $('#task-image')[0].files[0];
+    
+    var taskName = $('#tarea-nombre').val();
+    var responsible = $('#tarea-responsable').val();
+    var taskImage = $('#tarea-imagen')[0].files[0];
+    
     var task = {
       name: taskName,
       responsible: responsible,
-      image: taskImage,
-      completed: false
+      image: taskImage
     };
+    
     addTask(task);
+    
     $('#task-form')[0].reset();
-  });
-
-  // Load tasks from local storage
-  var storedTasks = JSON.parse(localStorage.getItem('tasks'));
-  if (storedTasks) {
-    tasks = storedTasks;
-    storedTasks.forEach(function(task, index) {
-      addTask(task);
-    });
-  }
-
-  // Save tasks to local storage
-  $(document).on('change', '#task-list input[type="checkbox"]', function() {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
   });
 });
 </script>
+
 </body>
-</html>
+</html>```
