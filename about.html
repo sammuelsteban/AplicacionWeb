@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preguntas Frecuentes</title>
+    <title>Información sobre el Proyecto</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         body {
@@ -17,91 +17,67 @@
             border: 1px solid #ddd;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .faq-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .faq-list li {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .faq-list li:last-child {
-            border-bottom: none;
-        }
         .navbar {
             background-color: #007bff;
-            padding: 40px;
+            padding: 20px;
         }
         .navbar a {
             color: white;
             text-decoration: none;
-            margin-right: 50px;
+            margin-right: 20px;
         }
         .navbar a:hover {
             color: #ccc;
         }
-
-        .task-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .task-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #ddd;
-            padding: 10px;
-        }
-        .task-item img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-        .task-item input[type="checkbox"] {
-            margin-right: 10px;
-        }
-        .task-item.actions {
-            display: flex;
-            align-items: center;
-        }
-        .task-item.actions button {
-            margin-left: 10px;
-        }
-</style>
-</head>
-<body>
-
-<nav class="navbar">
-  <a href="index.html">LIsta de Tareas</a>
-  <a href="about.html">Información Acerca de este Proyecto</a>
-  <a href="contact.html">Información de Contacto</a>
-</nav>
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center">Información acerca del Proyecto</h1>
-        <hr>
-        <ul class="faq-list">
-            <li>
-                <h3>¿Cuál es el propósito del proyecto?</h3>
-                <p>El propósito del proyecto es mejorar la calidad de vida de las personas y facilitar la comunicación entre ellos.</p>
-            </li>
-            <li>
-                <h3>¿Qué tecnologías se utilizan en el proyecto?</h3>
-                <p>Se utilizan tecnologías como HTML, CSS, JavaScript, PHP, entre otras.</p>
-            </li>
-            <li>
-                <h3>¿Cómo puedo contactar con el equipo de desarrollo?</h3>
-                <p>Puede contactar con el equipo de desarrollo a través de la página de contacto del sitio web.</p>
-            </li>
-        </ul>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <nav class="navbar">
+        <a href="index.html">Lista de Tareas</a>
+        <a href="about.html">Información sobre el Proyecto</a>
+        <a href="contact.html">Información de Contacto</a>
+    </nav>
 </body>
 </html>
+<div class="container">
+    <h1 class="text-center">Información sobre el Proyecto</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Propósito del Proyecto</h3>
+            <p>El propósito de este proyecto es desarrollar una aplicación web sencilla para gestionar una lista de tareas de manera fácil e intuitiva. Esto ayudará a los usuarios a organizar y mantener un control efectivo de sus actividades diarias.</p>
+        </div>
+        <div class="col-md-6">
+            <h3>Tecnologías Utilizadas</h3>
+            <ul>
+                <li>HTML, CSS, Bootstrap</li>
+                <li>Vercel (Despliegue)</li>
+                <li>Docker, Docker Play (Contenedores)</li>
+                <li>Git, GitHub (Control de Versiones)</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <h3>Equipo de Desarrollo</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="media">
+                <img src="imagen1.jpg" class="mr-3 rounded-circle" alt="Miembro 1" width="80" height="80">
+                <div class="media-body">
+                    <h5 class="mt-0">Miembro 1</h5>
+                    <p>Desarrollador Frontend</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="media">
+                <img src="imagen2.jpg" class="mr-3 rounded-circle" alt="Miembro 2" width="80" height="80">
+                <div class="media-body">
+                    <h5 class="mt-0">Miembro 2</h5>
+                    <p>Desarrollador Backend</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
