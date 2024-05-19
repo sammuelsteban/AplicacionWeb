@@ -1,26 +1,169 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Asignación de Tareas de Inventario</title>
-<link rel="stylesheet" type="text/css" href="styles.css">
+<title>Task Manager</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+  /* Add some styling for the navigation bar */
+  .navbar {
+    background-color: #007bff;
+    padding: 10px;
+  }
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  .navbar a:hover {
+    color: #ccc;
+  }
+
+  .task-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+  }
+  .task-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .task-item input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  .task-item.actions {
+    display: flex;
+    align-items: center;
+  }
+  .task-item.actions button {
+    margin-left: 10px;
+  }
+</style>
 </head>
 <body>
+<!-- Navigation bar -->
+<nav class="navbar">
+  <a href="#">Task Manager</a>
+  <a href="about.html">About Project</a>
+  <a href="contact.html">Contact Information</a>
+</nav>
+
+<!-- Task Manager content -->
 <div class="container">
-    <h1>Asignación de Tareas</h1>
-    <form>
-        <label for="producto">Tarea:</label>
-        <input type="text" id="tarea" name="tarea" required>
-        
-        <label for="cantidad">Descripción:</label>
-        <input type="number" id="descripcion" name="descripcion" required>
-        
-        <label for="responsable">Responsable:</label>
-        <input type="text" id="responsable" name="responsable" required>
-        
-        <button type="submit">Asignar Tarea</button>
-    </form>
+  <h1>Task Manager</h1>
+  <form id="task-form">
+    <div class="form-group">
+      <label for="task-name">Task Name</label>
+      <input type="text" class="form-control" id="task-name" placeholder="Enter task name">
+    </div>
+    <div class="form-group">
+      <label for="task-responsible">Responsible</label>
+      <input type="text" class="form-control" id="task-responsible" placeholder="Enter responsible name">
+    </div>
+    <div class="form-group">
+      <label for="task-image">Image</label>
+      <input type="file" class="form-control-file" id="task-image">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Task</button>
+  </form>
+  <ul id="task-list" class="task-list"></ul>
 </div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+  // Array to store tasks
+  var tasks = [];
+
+  // Function to add task to list
+  function addTask(task) {
+    tasks.push(task);
+    var taskItem = $('<li class="task-item"></li>');
+    var taskCheckbox = $('<input type="checkbox">');
+    var taskLabel = $('<label>' + task.name + '</label>');
+    var taskResponsible = $('<span>' + task.responsible + '</span>');
+    var taskImagePreview = $('<img>');
+    var taskActions = $('<div class="actions"></div>');
+    var taskDeleteButton = $('<button class="btn btn-danger">Delete</button>');
+    var taskCompleteButton = $('<button class="btn btn-success">Complete</button>');
+
+    // Create task item
+    taskCheckbox.appendTo(taskItem);
+    taskLabel.appendTo(taskItem);
+    taskResponsible.appendTo(taskItem);
+    taskImagePreview.appendTo(taskItem);
+    taskActions.appendTo(taskItem);
+    taskDeleteButton.appendTo(taskActions);
+    taskCompleteButton.appendTo(taskActions);
+
+    // Add event listeners
+    taskCheckbox.on('change', function() {
+      task.completed = $(this).prop('checked');
+    });
+    taskDeleteButton.on('click', function() {
+      deleteTask(task);
+    });
+    taskCompleteButton.on('click', function() {
+      task.completed = true;
+      $(taskItem).addClass('completed');
+    });
+
+    // Add task item to list
+    $('#task-list').append(taskItem);
+  }
+
+  // Function to delete task
+  function deleteTask(task) {
+    var index = tasks.indexOf(task);
+    if (index !== -1) {
+      tasks.splice(index, 1);
+      $('#task-list li').eq(index).remove();
+    }
+  }
+
+  // Handle form submission
+  $('#task-form').submit(function(e) {
+    e.preventDefault();
+    var taskName = $('#task-name').val();
+    var responsible = $('#task-responsible').val();
+    var taskImage = $('#task-image')[0].files[0];
+    var task = {
+      name: taskName,
+      responsible: responsible,
+      image: taskImage,
+      completed: false
+    };
+    addTask(task);
+    $('#task-form')[0].reset();
+  });
+
+  // Load tasks from local storage
+  var storedTasks = JSON.parse(localStorage.getItem('tasks'));
+  if (storedTasks) {
+    tasks = storedTasks;
+    storedTasks.forEach(function(task, index) {
+      addTask(task);
+    });
+  }
+
+  // Save tasks to local storage
+  $(document).on('change', '#task-list input[type="checkbox"]', function() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  });
+});
+</script>
 </body>
 </html>
