@@ -8,17 +8,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-image: linear-gradient(to right, #2c3e50, #34495e);
+            background-image: linear-gradient(to right, #2c3e50, #34495e, #7f8c8d, #bdc3c7);
             background-size: 400% 400%;
             animation: gradientAnimation 30s ease infinite;
             font-family: 'Roboto', sans-serif;
         }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .container {
-    max-width: 800px;
-    margin: 40px auto;
+    max-width: 1500px;
+    margin: 60px auto;
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -78,12 +95,12 @@
     font-size: 1.1rem;
 }
 footer {
-            background-color: #ffffffc5;
-            color: #2c3e50;
-            padding: 1rem;
-            text-align: center;
-            margin-top: 1rem;
-        }
+    background-color: #ffffffc5;
+    color: #2c3e50;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 5rem;
+}
    
 </style>  
 </head>
@@ -99,17 +116,27 @@ footer {
 
 </head>
 <body>
-    <br><br>
-    <main>
-        <h1>Crea una lista de tareas en línea, ya sea para un colegio o empresa ¡Dale el uso que tu quieras!</h1>
-        <p>Planifica y gestiona tus proyectos con Projoodle. Crea una lista de tareas y compártela con tus amigos. Todo lo que necesitas para mantenerte centrado y organizado en un solo lugar.</p>
-        <h2>Ventajas de Projoodle</h2>
-        <ul>
-            <li>Gratuito y sin registro</li>
-            <li>Crea una lista de tareas y comparte con amigos</li>
-            <li>Mantente centrado y organizado</li>
-        </ul>
-    </main>
+    <div class="container">
+    <h1 class="text-center" style="font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700;">Información sobre el Proyecto</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="section-title">Propósito del Proyecto</h3>
+            <p>El propósito principal de este proyecto es desarrollar una aplicación web sencilla y eficiente para ayudar a los usuarios a gestionar sus tareas diarias de manera fácil e intuitiva. Nuestra meta es mejorar la productividad y la organización de las personas, brindándoles una herramienta que les permita mantener un control efectivo de sus actividades.</p>
+        </div>
+        <div class="col-md-6">
+            <h3 class="section-title">Tecnologías Utilizadas</h3>
+            <ul>
+                <li>HTML, CSS, Bootstrap: Utilizados para el desarrollo del frontend de la aplicación, brindando una interfaz de usuario responsive y de fácil uso.</li>
+                <li>Vercel: Plataforma de despliegue en la nube que nos permite publicar la aplicación de manera sencilla y accesible en línea.</li>
+                <li>Docker, Docker Play: Herramientas de containerización que facilitan la ejecución y distribución de la aplicación en diferentes entornos.</li>
+                <li>Git, GitHub: Sistema de control de versiones que nos permite colaborar de manera eficiente en el desarrollo del proyecto.</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+
+    </div>
     <footer>
         &copy; 2024 TaskList
     </footer>
