@@ -30,7 +30,7 @@
     }
 }
 
-.container {
+.container1 {
     max-width: 1500px;
     margin: 60px auto;
     padding: 40px;
@@ -116,23 +116,89 @@ footer {
 
 </head>
 <body>
-    <div class="container">
-    <h1 class="text-center" style="font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700;">Información sobre el Proyecto</h1>
+    <div class="container1">
+    <h1 class="text-center" style="font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700;">Crea una lista de tareas, gratis y sin registrarse</h1>
     <hr>
     <div class="row">
         <div class="col-md-6">
-            <h3 class="section-title">Propósito del Proyecto</h3>
+            <h3 class="section-title">¿Cómo pueden ayudarte las listas de tareas pendientes a mantenerte centrado y organizado?</h3>
             <p>El propósito principal de este proyecto es desarrollar una aplicación web sencilla y eficiente para ayudar a los usuarios a gestionar sus tareas diarias de manera fácil e intuitiva. Nuestra meta es mejorar la productividad y la organización de las personas, brindándoles una herramienta que les permita mantener un control efectivo de sus actividades.</p>
         </div>
         <div class="col-md-6">
-            <h3 class="section-title">Tecnologías Utilizadas</h3>
+            <h3 class="section-title">¿Cuáles son las ventajas de una lista de tareas?</h3>
             <ul>
                 <li>HTML, CSS, Bootstrap: Utilizados para el desarrollo del frontend de la aplicación, brindando una interfaz de usuario responsive y de fácil uso.</li>
                 <li>Vercel: Plataforma de despliegue en la nube que nos permite publicar la aplicación de manera sencilla y accesible en línea.</li>
                 <li>Docker, Docker Play: Herramientas de containerización que facilitan la ejecución y distribución de la aplicación en diferentes entornos.</li>
                 <li>Git, GitHub: Sistema de control de versiones que nos permite colaborar de manera eficiente en el desarrollo del proyecto.</li>
             </ul>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
         </div>
+        <!--galeria de fotos-->
+        <style>*,
+            *::before,
+            *::after {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            .container {
+              width: 100%;
+              max-width: 800px;
+              height: 500px;
+              display: flex;
+              justify-content: center;
+              align-items: stretch;
+              gap: 1.25rem;
+              transition: all 400ms;
+            }
+            
+            .card {
+              flex: 1;
+              height: 100%;
+              transition: all 400ms;
+              cursor: pointer;
+            }
+            .card > img {
+              display: block;
+              max-width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            
+            .card:nth-child(odd) {
+              translate: 0 -20px;
+            }
+            .card:nth-child(even) {
+              translate: 0 20px;
+            }
+            
+            .container:hover .card:not(:hover) {
+              filter: grayscale(100%);
+            }
+            .card:hover {
+              flex: 3;
+            }</style>
+        <div class="container">
+        <div class="card">
+          <img src="imagenes/ney1.webp">
+        </div>
+        <div class="card">
+          <img src="imagenes/ney2.jpg">
+        </div>
+        <div class="card">
+          <img src="imagenes/santos3.jpg">
+        </div>
+        <div class="card">
+          <img src="imagenes/ney4.jpg">
+        </div>
+        <div class="card">
+          <img src="imagenes/ney5.jpg_large">
+        </div>
+      </div>
     </div>
     <hr>
 
