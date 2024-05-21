@@ -7,13 +7,13 @@ Una aplicación web de lista de tareas puede ser de gran utilidad para las insti
 
 ## Empezando
 
-Estas instrucciones le permitirán obtener una copia del proyecto en funcionamiento en su máquina local para fines de desarrollo y prueba. Consulte implementación para obtener notas sobre cómo implementar el proyecto en un sistema en vivo.
+Estas instrucciones le permitirán obtener una copia del proyecto en funcionamiento en su máquina local para fines de desarrollo y prueba.
 
 ### Instalación
 
 1. **Clonar el repositorio**: Abre tu terminal y ejecuta el siguiente comando para clonar el repositorio en tu máquina local. Reemplaza `<URL_del_repositorio>` con la URL del repositorio que deseas clonar.
    ```
-   git clone <URL_del_repositorio>
+   git clone https://github.com/sammuelsteban/AplicacionWeb.git
    ```
 
 2. **Inicializar el repositorio**: Una vez clonado el repositorio, ingresa al directorio del proyecto clonado y ejecuta el siguiente comando para inicializar un repositorio Git local.
