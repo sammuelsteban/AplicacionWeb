@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información sobre el Proyecto</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: linear-gradient(to right, #2c3e50, #34495e, #7f8c8d, #bdc3c7);
+            background-size: 400% 400%;
+            animation: gradientAnimation 30s ease infinite;
+            font-family: 'Roboto', sans-serif;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    background-color: #ffffffc5;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+    color: #2c3e50;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #7f8c8d;
+}
+
+.section-title {
+    color: #2c3e50;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.team-member img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-member h5 {
+    margin-bottom: 5px;
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.team-member p {
+    margin-bottom: 0;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+footer {
+            background-color: #ffffffc5;
+            color: #2c3e50;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+</style>  
+</head>
+<body>
+    <nav class="navbar">
+            <a href="index.html">Inicio</a>
+            <a href="tasklist.html">Lista de Tareas</a>
+            <a href="about.html">Más Información</a>
+            <a href="contact.html">Contactos</a>
+            <a href="convenios.html">Convenios</a>
+    </nav>
+</body>
+</html>
+<div class="container">
+    <h1 class="text-center" style="font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700;">Información sobre el Proyecto</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="section-title">Propósito del Proyecto</h3>
+            <p>El propósito principal de este proyecto es desarrollar una aplicación web sencilla y eficiente para ayudar a los usuarios a gestionar sus tareas diarias de manera fácil e intuitiva. Nuestra meta es mejorar la productividad y la organización de las personas, brindándoles una herramienta que les permita mantener un control efectivo de sus actividades.</p>
+        </div>
+        <div class="col-md-6">
+            <h3 class="section-title">Tecnologías Utilizadas</h3>
+            <ul>
+                <li>HTML, CSS, Bootstrap: Utilizados para el desarrollo del frontend de la aplicación, brindando una interfaz de usuario responsive y de fácil uso.</li>
+                <li>Vercel: Plataforma de despliegue en la nube que nos permite publicar la aplicación de manera sencilla y accesible en línea.</li>
+                <li>Docker, Docker Play: Herramientas de containerización que facilitan la ejecución y distribución de la aplicación en diferentes entornos.</li>
+                <li>Git, GitHub: Sistema de control de versiones que nos permite colaborar de manera eficiente en el desarrollo del proyecto.</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <h3 class="section-title">Equipo de Desarrollo</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="team-member">
+                <img src="Imagenes/imagen1.png" alt="Miembro 1">
+                <div>
+                    <h5>Jesús David Mora</h5>
+                    <p>Desarrollador 1 </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="team-member">
+                <img src="Imagenes/imagen2.jpg" alt="Miembro 2">
+                <div>
+                    <h5>Sammuel Steban Montaño</h5>
+                    <p>Desarrollador 2</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    &copy; Info
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+

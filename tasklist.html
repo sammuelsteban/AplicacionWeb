@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: linear-gradient(to right, #2c3e50, #34495e, #7f8c8d, #bdc3c7);
+            background-size: 400% 400%;
+            animation: gradientAnimation 30s ease infinite;
+            font-family: 'Roboto', sans-serif;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    max-width: 1350px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    background-color: #ffffffc5;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+    color: #2c3e50;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #7f8c8d;
+}
+
+.section-title {
+    color: #2c3e50;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.team-member img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-member h5 {
+    margin-bottom: 5px;
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.team-member p {
+    margin-bottom: 0;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+footer {
+    background-color: #ffffffc5;
+    color: #2c3e50;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 5rem;
+}
+.task-item img {
+    width: 90px; /* Ajusta el tamaño de la imagen */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="tasklist.html">Lista de Tareas</a>
+        <a href="about.html">Más Información</a>
+        <a href="contact.html">Contactos</a>
+        <a href="convenios.html">Convenios</a>
+    </nav>
+
+    <br><br>
+
+    <div class="container">
+        <form id="task-form">
+            <div class="form-group">
+                <label for="tarea-nombre">Nombre de la Tarea</label>
+                <input type="text" class="form-control" id="tarea-nombre" placeholder="Introduzca el nombre de la tarea">
+            </div>
+            <div class="form-group">
+                <label for="tarea-responsable">Responsable</label>
+                <input type="text" class="form-control" id="tarea-responsable" placeholder="Introduzca el nombre del responsable">
+            </div>
+            <div class="form-group">
+                <label for="tarea-imagen">Imagen del Responsable</label>
+                <input type="file" class="form-control-file" id="tarea-imagen">
+            </div>
+            <button type="submit" class="btn btn-primary">Añadir Tarea</button>
+        </form>
+        <br><br>
+        <ul id="task-list" class="task-list"></ul>
+    </div>
+
+    <br><br>
+
+    <footer>
+        &copy; Lista de Tareas 
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var tasks = [];
+
+            function addTask(task) {
+                tasks.push(task);
+
+                var taskItem = $('<li class="task-item"></li>');
+                var taskInfo = $('<div class="task-info"></div>');
+                var taskActions = $('<div class="task-actions"></div>');
+                var taskName = $('<h4>' + "Tarea: " + task.name + '</h4>');
+                var taskResponsible = $('<h4>' + 'Responsable: ' + task.responsible + '</h4>');
+                var taskImage = $('<img src="' + URL.createObjectURL(task.image) + '">');
+                var deleteButton = $('<button class="btn btn-danger">Eliminar</button>');
+                var completeButton = $('<button class="btn btn-success">Completado</button>');
+
+                taskName.appendTo(taskInfo);
+                taskResponsible.appendTo(taskInfo);
+                taskInfo.appendTo(taskItem);
+                taskImage.appendTo(taskItem);
+
+                var actions = $('<div class="actions"></div>');
+                deleteButton.appendTo(actions);
+                completeButton.appendTo(actions);
+                actions.appendTo(taskItem);
+
+                // Al hacer click la imagen se hace mas grande
+                taskImage.on('click', function() {
+                    var imgSrc = $(this).attr('src');
+                    alert('Mostrar imagen en tamaño más grande: ' + imgSrc);
+                });
+
+                deleteButton.on('click', function() {
+                    $(this).closest('.task-item').remove();
+                    tasks = tasks.filter(t => t !== task);
+                });
+
+                completeButton.on('click', function() {
+                    alert('¡Felicidades! Tarea completada: ' + task.name);
+                    $(this).closest('.task-item').remove();
+                    tasks = tasks.filter(t => t !== task);
+                });
+
+                $('<hr>').appendTo('#task-list'); // Separador entre tareas
+                taskItem.appendTo('#task-list');
+            }
+
+            $('#task-form').submit(function(e) {
+                e.preventDefault();
+
+                var taskName = $('#tarea-nombre').val();
+                var responsible = $('#tarea-responsable').val();
+                var taskImage = $('#tarea-imagen')[0].files[0];
+
+                var task = {
+                    name: taskName,
+                    responsible: responsible,
+                    image: taskImage
+                };
+
+                addTask(task);
+
+                $('#task-form')[0].reset();
+            });
+        });
+    </script>
+</body>
+</html>

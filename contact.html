@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de Contacto</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: linear-gradient(to right, #2c3e50, #34495e, #7f8c8d, #bdc3c7);
+            background-size: 400% 400%;
+            animation: gradientAnimation 30s ease infinite;
+            font-family: 'Roboto', sans-serif;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            background-color: #ffffffc5;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            color: #2c3e50;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #7f8c8d;
+        }
+
+        .section-title {
+            color: #ffffff;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .team-member img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member h5 {
+            margin-bottom: 5px;
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .team-member p {
+            margin-bottom: 0;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .footer a:hover {
+            color: #7f8c8d;
+        }
+        footer {
+            background-color: #ffffffc5;
+            color: #2c3e50;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+    </style>  
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="tasklist.html">Lista de Tareas</a>
+        <a href="about.html">Más Información</a>
+        <a href="contact.html">Contactos</a>
+        <a href="convenios.html">Convenios</a>
+    </nav>
+    <div class="container">
+        <h1 class="text-center">Información de Contacto</h1>
+        <hr>
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico">
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje:</label>
+                <textarea class="form-control" id="mensaje" placeholder="Ingrese su mensaje"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    <hr>
+    <div class="footer">
+        <p>Redes Sociales de los Programadores:</p>
+        <div class="col-md-6">
+            <div class="team-member">
+                <img src="Imagenes/imagen1.png" alt="Miembro 1">
+                <div>
+                    <h5>Jesús David Mora</h5>
+                    <a href="https://www.instagram.com/zarcoxx_jd_/">Instagram</a>
+                    <a href="https://www.facebook.com/david.moraibanez?locale=es_LA">Facebook</a>
+                    <a href="https://github.com/JesusMora110602">GitHub</a>
+                </div>
+                <hr>
+                </div>
+                <div class="col-md-6">
+                    <div class="team-member">
+                <img src="Imagenes/imagen2.jpg" alt="Miembro 2">
+                <div>
+                    <h5>Sammuel Steban Montaño</h5>
+                    <a href="https://www.instagram.com/sammuelsteban/">Instagram</a>
+                    <a href="https://www.facebook.com/sammuelsteban.montanocundar.5?locale=es_LA">Facebook</a>
+                    <a href="https://github.com/sammuelsteban">GitHub</a>
+                 </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+    </div>
+</div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <footer>
+        &copy; Contactos
+    </footer>
+
+</body>
+</html>
